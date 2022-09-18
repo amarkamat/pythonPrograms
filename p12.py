@@ -1,3 +1,35 @@
+#10 Write a python script to calculate HCF of two numbers
+#9 Write a python script to calculate LCM of two numbers
+import math
+def factor(t):
+    i=2
+    l=[]
+    while i<=t:
+        if t%i==0:
+            l.append(i)
+            t=t//i
+            i=2
+        else:
+            i+=1
+    return l
+n1,n2=28,12
+l1=factor(n1)
+l2=factor(n2)
+print("Factors of ",n1," : ",l1)
+print("Factors of ",n2," : ",l2)
+l3,l4=[],[]
+for e in l1:
+    for i in l2:
+        if e==i:
+            l2.remove(i)
+            l3.append(e)
+            break
+    else:
+        l4.append(e)
+l4=l4+l3+l2
+print("HCF is: ",math.prod(l3))
+print("LCM is: ",math.prod(l4))
+
 #8
 a=int(input("Enter number: "))
 l=[0,1]
